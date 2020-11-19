@@ -7,14 +7,6 @@ export default function Counter() {
   const [state, dispatch] = useReducer(reducer, { counter: 0 });
   const { counter } = state;
 
-  const increase = () => {
-    dispatch({ type: 'increase' });
-  };
-
-  const decrease = () => {
-    dispatch({ type: 'decrease' });
-  };
-
   return (
     <div className="flex flex-center">
       <div className="flex-column counter-wrapper">
@@ -25,12 +17,12 @@ export default function Counter() {
         <div className="flex">
           <Button
             className="btn btn-primary"
-            onClick={increase}
+            onClick={() => dispatch({ type: 'increase' })}
             icon={<span>&#43;</span>}
           />
           <Button
             className="btn btn-primary"
-            onClick={decrease}
+            onClick={() => dispatch({ type: 'decrease' })}
             icon={<span>&#8722;</span>}
           />
         </div>
